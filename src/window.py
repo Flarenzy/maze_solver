@@ -2,6 +2,7 @@ from tkinter import BOTH
 from tkinter import Canvas
 from tkinter import Tk
 
+from src.constants import BACKGROUND_COLOR
 from src.shapes import Line
 
 
@@ -20,7 +21,8 @@ class Window:
         self.root = Tk()
         self.root.title("Maze solver")
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.canvas = Canvas(self.root, width=width, height=height)
+        self.canvas = Canvas(self.root, width=width, height=height,
+                             background=BACKGROUND_COLOR)
         self.canvas.pack()
         self._is_running = False
 

@@ -1,5 +1,6 @@
 import logging
 
+from src.constants import BACKGROUND_COLOR
 from src.constants import CELL_LINE_COLOR
 from src.constants import MOVE_COLOR
 from src.constants import MOVE_COLOR_UNDO
@@ -37,26 +38,56 @@ class Cell:
         if not self._win:
             raise AttributeError("Window has to be set for the cell!")
         if self.has_bottom_wall:
+            clr = CELL_LINE_COLOR
             p1 = Point(self._x1, self._y2)
             p2 = Point(self._x2, self._y2)
             line = Line(p1, p2)
-            self._win.draw(line, CELL_LINE_COLOR)
+            self._win.draw(line, clr)
+        else:
+            clr = BACKGROUND_COLOR
+            p1 = Point(self._x1, self._y2)
+            p2 = Point(self._x2, self._y2)
+            line = Line(p1, p2)
+            self._win.draw(line, clr)
+
         if self.has_left_wall:
+            clr = CELL_LINE_COLOR
             p1 = Point(self._x1, self._y1)
             p2 = Point(self._x1, self._y2)
             line = Line(p1, p2)
-            logger.info(f"left wall line:{line}")
-            self._win.draw(line, CELL_LINE_COLOR)
+            self._win.draw(line, clr)
+        else:
+            clr = BACKGROUND_COLOR
+            p1 = Point(self._x1, self._y1)
+            p2 = Point(self._x1, self._y2)
+            line = Line(p1, p2)
+            self._win.draw(line, clr)
+
         if self.has_right_wall:
+            clr = CELL_LINE_COLOR
             p1 = Point(self._x2, self._y1)
             p2 = Point(self._x2, self._y2)
             line = Line(p1, p2)
-            self._win.draw(line, CELL_LINE_COLOR)
+            self._win.draw(line, clr)
+        else:
+            clr = BACKGROUND_COLOR
+            p1 = Point(self._x2, self._y1)
+            p2 = Point(self._x2, self._y2)
+            line = Line(p1, p2)
+            self._win.draw(line, clr)
+
         if self.has_top_wall:
+            clr = CELL_LINE_COLOR
             p1 = Point(self._x1, self._y1)
             p2 = Point(self._x2, self._y1)
             line = Line(p1, p2)
-            self._win.draw(line, CELL_LINE_COLOR)
+            self._win.draw(line, clr)
+        else:
+            clr = BACKGROUND_COLOR
+            p1 = Point(self._x1, self._y1)
+            p2 = Point(self._x2, self._y1)
+            line = Line(p1, p2)
+            self._win.draw(line, clr)
 
     def set_window(self, win: Window) -> None:
         self._win = win

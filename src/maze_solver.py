@@ -20,6 +20,7 @@ def main() -> int:
     maze = Maze(MAZE_X_COORDINATE, MAZE_Y_COORDINATE,
                 MAZE_ROWS, MAZE_COLUMNS,
                 CELL_SIZE_X, CELL_SIZE_Y, win)
+    maze.draw_maze()
     win.wait_for_close()
     return 0
 
