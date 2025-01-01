@@ -1,11 +1,16 @@
+import logging
+
 from tkinter import Canvas
+
+
+logger = logging.getLogger(__name__)
 
 
 class Point:
     """Simple 2D coordinate with x and y.
     """
     def __init__(self, x: float, y: float) -> None:
-        if not x or not y:
+        if x is None or y is None:
             raise TypeError("Point.__init__() is missing 2 required "
                             "positional arguments: 'x' and 'y'.")
         self.x = x
@@ -40,6 +45,8 @@ class Line:
         return f"Line({self.point1}, {self.point2})"
 
     def draw(self, canvas: Canvas, fill_color: str) -> None:
+        logger.info(f"Drawing line with x1={self.point1.x}, y1={self.point1.x}"
+                    f" and x2={self.point2.x}, y2={self.point2.y}")
         canvas.create_line(self.point1.x, self.point1.y,
                            self.point2.x, self.point2.y,
                            fill=fill_color, width=2)

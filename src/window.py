@@ -43,4 +43,6 @@ class Window:
         self._is_running = False
 
     def draw(self, line: Line, fill_color: str) -> None:
+        """Draws a line on the canvas.
+        """
         line.draw(self.canvas, fill_color)
