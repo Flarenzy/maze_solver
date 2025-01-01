@@ -15,12 +15,12 @@ class Window:
 
         :return: None.
         """
-        self.width = width
-        self.height = height
+        # self.width = width
+        # self.height = height
         self.root = Tk()
         self.root.title("Maze solver")
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.canvas = Canvas(self.root)
+        self.canvas = Canvas(self.root, width=width, height=height)
         self.canvas.pack()
         self._is_running = False
 

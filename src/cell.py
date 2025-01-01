@@ -70,3 +70,7 @@ class Cell:
         p2 = Point(other_center_x, other_center_y)
         clr = MOVE_COLOR if not undo else MOVE_COLOR_UNDO
         self._win.draw(Line(p1, p2), clr)
+
+    def __repr__(self) -> str:
+        return (f"Cell({self._x1}, {self._y1}, "
+                f"{self._x2}, {self._y2})")
