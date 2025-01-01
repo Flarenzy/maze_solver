@@ -2,6 +2,8 @@ from tkinter import BOTH
 from tkinter import Canvas
 from tkinter import Tk
 
+from src.shapes import Line
+
 
 class Window:
     """A window class.
@@ -39,3 +41,6 @@ class Window:
         """Closes the window.
         """
         self._is_running = False
+
+    def draw(self, line: Line, fill_color: str) -> None:
+        line.draw(self.canvas, fill_color)
