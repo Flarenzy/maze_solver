@@ -1,4 +1,3 @@
-from tkinter import BOTH
 from tkinter import Canvas
 from tkinter import Tk
 
