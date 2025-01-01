@@ -1,10 +1,10 @@
 import logging
 
 from src.cell import Cell
-from src.window import Window
-from src.shapes import Point
-from src.constants import WINDOW_WIDTH
 from src.constants import WINDOW_HEIGHT
+from src.constants import WINDOW_WIDTH
+from src.shapes import Point
+from src.window import Window
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename="maze_solver.log", level=logging.INFO)

@@ -1,11 +1,11 @@
 import logging
 
-from src.window import Window
-from src.shapes import Line
-from src.shapes import Point
 from src.constants import CELL_LINE_COLOR
 from src.constants import MOVE_COLOR
 from src.constants import MOVE_COLOR_UNDO
+from src.shapes import Line
+from src.shapes import Point
+from src.window import Window
 
 
 logger = logging.getLogger(__name__)
