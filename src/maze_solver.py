@@ -1,15 +1,15 @@
 import logging
 
-from src.constants import WINDOW_HEIGHT
-from src.constants import WINDOW_WIDTH
-from src.constants import MAZE_ROWS
-from src.constants import MAZE_COLUMNS
-from src.constants import MAZE_X_COORDINATE
-from src.constants import MAZE_Y_COORDINATE
 from src.constants import CELL_SIZE_X
 from src.constants import CELL_SIZE_Y
-from src.window import Window
+from src.constants import MAZE_COLUMNS
+from src.constants import MAZE_ROWS
+from src.constants import MAZE_X_COORDINATE
+from src.constants import MAZE_Y_COORDINATE
+from src.constants import WINDOW_HEIGHT
+from src.constants import WINDOW_WIDTH
 from src.maze import Maze
+from src.window import Window
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(filename="maze_solver.log", level=logging.INFO)
