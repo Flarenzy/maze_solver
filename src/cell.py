@@ -28,6 +28,7 @@ class Cell:
         self._x2: float = 0.0  # top right coordinates
         self._y2: float = 0.0
         self._win: Window
+        self.visited = False
 
     def draw(self, x1: float, y1: float, x2: float, y2: float) -> None:
         if not self._x1:
@@ -105,3 +106,22 @@ class Cell:
     def __repr__(self) -> str:
         return (f"Cell({self._x1}, {self._y1}, "
                 f"{self._x2}, {self._y2})")
+
+    def knock_down_wall(self, direction: str) -> None:
+        match direction:
+            case "top":
+                self.has_top_wall = False
+                self.draw(self._x1, self._y1,
+                          self._x2, self._y2)
+            case "bottom":
+                self.has_bottom_wall = False
+                self.draw(self._x1, self._y1,
+                          self._x2, self._y2)
+            case "left":
+                self.has_left_wall = False
+                self.draw(self._x1, self._y1,
+                          self._x2, self._y2)
+            case "right":
+                self.has_right_wall = False
+                self.draw(self._x1, self._y1,
+                          self._x2, self._y2)
