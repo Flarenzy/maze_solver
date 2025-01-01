@@ -22,11 +22,11 @@ class Cell:
         self.has_right_wall = has_right_wall
         self.has_bottom_wall = has_bottom_wall
         self.has_top_wall = has_top_wall
-        self._x1 = None  # top left coordinates
-        self._y1 = None
-        self._x2 = None  # top right coordinates
-        self._y2 = None
-        self._win = None
+        self._x1: float = 0.0  # top left coordinates
+        self._y1: float = 0.0
+        self._x2: float = 0.0  # top right coordinates
+        self._y2: float = 0.0
+        self._win: Window
 
     def draw(self, x1: float, y1: float, x2: float, y2: float) -> None:
         if not self._x1:
@@ -34,6 +34,8 @@ class Cell:
             self._y1 = y1
             self._x2 = x2
             self._y2 = y2
+        if not self._win:
+            raise AttributeError("Window has to be set for the cell!")
         if self.has_bottom_wall:
             p1 = Point(self._x1, self._y2)
             p2 = Point(self._x2, self._y2)
@@ -64,10 +66,6 @@ class Cell:
         center_y = self._y2 - (self._y2 - self._y1) / 2
         other_center_x = to_cell._x2 - (to_cell._x2 - to_cell._x1) / 2
         other_center_y = to_cell._y2 - (to_cell._y2 - to_cell._y1) / 2
-        logger.info(f"self: {self._x1}, {self._y1}, {self._x2}, {self._y2}")
-        logger.info(f"other: {to_cell._x1}, {to_cell._y1}, {to_cell._x2}, {to_cell._y2}")
-        logger.info(f"center: {center_x}, {center_y}\n"
-                    f"other: {other_center_x}, {other_center_y}")
         p1 = Point(center_x, center_y)
         p2 = Point(other_center_x, other_center_y)
         clr = MOVE_COLOR if not undo else MOVE_COLOR_UNDO

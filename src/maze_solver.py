@@ -2,7 +2,6 @@ import logging
 
 from src.cell import Cell
 from src.window import Window
-from src.shapes import Line
 from src.shapes import Point
 from src.constants import WINDOW_WIDTH
 from src.constants import WINDOW_HEIGHT
