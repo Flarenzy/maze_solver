@@ -34,7 +34,7 @@ How to run
 
 Clone the project, create an new venv and install the reqired dependencies from the requirements_dev.txt.
 From the root of the project just run:
-'python3 src/maze_solver.py'
+`python3 src/maze_solver.py`
 
 
 
