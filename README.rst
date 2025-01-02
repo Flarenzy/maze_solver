@@ -16,7 +16,7 @@ maze_solver
 
 
 
-A simple maze solver. A guided project by boot.dev
+A simple maze solver. A guided project by boot.dev. This project simulates the creation and solving of a maze.
 
 
 * Free software: MIT license
@@ -26,7 +26,19 @@ A simple maze solver. A guided project by boot.dev
 Features
 --------
 
-* TODO
+* Creates maze
+* Attemts to solve it
+
+How to
+------
+
+Clone the project, create an new venv and install the reqired dependencies from the requirements_dev.txt.
+From the root of the project just run:
+'''sh
+python3 src/maze_solver.py
+'''
+
+
 
 Credits
 -------
