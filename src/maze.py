@@ -119,3 +119,56 @@ class Maze:
             for j in range(self.num_rows):
                 self._cells[i][j].visited = False
         logger.info("Reset all cells visited property to False")
+
+    def _solve_r(self, i: int, j: int) -> bool:
+        self._animate()
+        cell = self._cells[i][j]
+        cell.visited = True
+        n = self.num_cols - 1
+        m = self.num_rows - 1
+        if i == n and j == m:
+            return True
+        if i + 1 < self.num_cols and j < self.num_rows:
+            if not self._cells[i + 1][j].visited \
+               and not cell.has_right_wall:
+                cell.draw_move(self._cells[i + 1][j])
+                if self._solve_r(i+1, j):
+                    return True
+                else:
+                    cell.draw_move(self._cells[i + 1][j],
+                                   undo=True)
+
+        if i - 1 >= 0 and j >= 0:
+            if not self._cells[i - 1][j].visited \
+               and not cell.has_left_wall:
+                cell.draw_move(self._cells[i - 1][j])
+                if self._solve_r(i-1, j):
+                    return True
+                else:
+                    cell.draw_move(self._cells[i - 1][j],
+                                   undo=True)
+        if i < self.num_cols and j + 1 < self.num_rows:
+            if not self._cells[i][j + 1].visited \
+               and not cell.has_bottom_wall:
+                cell.draw_move(self._cells[i][j + 1])
+                if self._solve_r(i, j + 1):
+                    return True
+                else:
+                    cell.draw_move(self._cells[i][j + 1],
+                                   undo=True)
+        if i < self.num_cols and j - 1 > 0:
+            if not self._cells[i][j - 1].visited \
+               and not cell.has_top_wall:
+                cell.draw_move(self._cells[i][j - 1])
+                if self._solve_r(i, j - 1):
+                    return True
+                else:
+                    cell.draw_move(self._cells[i][j - 1],
+                                   undo=True)
+
+        return False
+
+    def solve(self) -> bool:
+        if not self._cells:
+            return False
+        return self._solve_r(0, 0)

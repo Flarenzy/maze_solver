@@ -21,6 +21,8 @@ def main() -> int:
                 MAZE_ROWS, MAZE_COLUMNS,
                 CELL_SIZE_X, CELL_SIZE_Y, win)
     maze.draw_maze()
+    if maze.solve():
+        print("Solved the maze!")
     win.wait_for_close()
     return 0
 
